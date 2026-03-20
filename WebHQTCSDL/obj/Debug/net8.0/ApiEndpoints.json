@@ -1,0 +1,175 @@
+[
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "AddTrip",
+    "RelativePath": "api/Admin/add-trip",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Models.AddTripRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "GetSchedule",
+    "RelativePath": "api/Admin/schedule",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebHQTCSDL.Models.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.BookingsController",
+    "Method": "BookTicket",
+    "RelativePath": "api/Bookings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebHQTCSDL.Models.BookingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.BookingsController",
+    "Method": "CancelOrder",
+    "RelativePath": "api/Bookings/cancel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebHQTCSDL.Models.CancelRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.BookingsController",
+    "Method": "GetBookingHistory",
+    "RelativePath": "api/Bookings/history/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.ReportsController",
+    "Method": "GetRevenue",
+    "RelativePath": "api/Reports/revenue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tuNgay",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "denNgay",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.RoutesController",
+    "Method": "GetRoutes",
+    "RelativePath": "api/Routes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.TripsController",
+    "Method": "GetBookedSeats",
+    "RelativePath": "api/Trips/{chuyenXeId}/seats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chuyenXeId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.TripsController",
+    "Method": "GetFeaturedTrips",
+    "RelativePath": "api/Trips/featured",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.TripsController",
+    "Method": "SearchTrips",
+    "RelativePath": "api/Trips/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "diemDi",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "diemDen",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ngayDi",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
