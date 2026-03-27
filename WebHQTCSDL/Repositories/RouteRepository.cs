@@ -30,8 +30,7 @@ namespace WebHQTCSDL.Repositories
                 using (var command = connection.CreateCommand())
                 {
                     // Lệnh SQL của bạn
-                    command.CommandText = "SELECT DISTINCT DiemDi, DiemDen FROM TUYENXE";
-                    command.CommandType = CommandType.Text;
+                    command.CommandText = "SELECT TuyenXeId, TenTuyen, DiemDi, DiemDen, KhoangCach_Km FROM TUYENXE ORDER BY TuyenXeId ASC"; command.CommandType = CommandType.Text;
 
                     using (var reader = await command.ExecuteReaderAsync())
                     {
@@ -39,9 +38,13 @@ namespace WebHQTCSDL.Repositories
                         {
                             routes.Add(new RouteDto
                             {
-                                // GetString(0) là cột đầu tiên (DiemDi), GetString(1) là DiemDen
-                                DiemDi = reader.GetString(0),
-                                DiemDen = reader.GetString(1)
+                                // Anh xa chinh xac ten cot tu Oracle sang C#
+                                TuyenXeId = reader["TUYENXEID"].ToString(),
+                                TenTuyen = reader["TENTUYEN"].ToString(),
+                                DiemDi = reader["DIEMDI"].ToString(),
+                                DiemDen = reader["DIEMDEN"].ToString(),
+                                // Kiem tra null truoc khi convert cho an toan
+                                KhoangCach = reader["KHOANGCACH_KM"] != DBNull.Value ? Convert.ToDecimal(reader["KHOANGCACH_KM"]) : 0
                             });
                         }
                     }

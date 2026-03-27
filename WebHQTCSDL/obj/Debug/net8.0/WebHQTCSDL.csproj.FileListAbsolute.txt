@@ -49,3 +49,4 @@ D:\WEB\WebHQTCSDL\WebHQTCSDL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.
 D:\WEB\WebHQTCSDL\WebHQTCSDL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\WEB\WebHQTCSDL\WebHQTCSDL\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\WEB\WebHQTCSDL\WebHQTCSDL\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\WEB\WebHQTCSDL\WebHQTCSDL\obj\Debug\net8.0\WebHQTCSDL.sourcelink.json

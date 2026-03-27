@@ -75,7 +75,7 @@ const TripsPage = () => {
                 maGhe: selectedSeat
             });
             if (res.data.success) {
-                alert("🎉 " + res.data.message);
+                alert(" " + res.data.message);
                 setShowModal(false);
                 window.location.reload(); // Load lại để update số ghế
             }
@@ -94,7 +94,7 @@ const TripsPage = () => {
     return (
         <Container className="py-5">
             <h3 className="fw-bold mb-4" style={{ color: '#ef5222' }}>
-                🚌 KẾT QUẢ TÌM KIẾM: {diemDi} ➔ {diemDen}
+                 KẾT QUẢ TÌM KIẾM: {diemDi} ➔ {diemDen}
             </h3>
             <p className="text-muted fw-bold mb-4">Ngày khởi hành: {new Date(ngayDi).toLocaleDateString('vi-VN')}</p>
 

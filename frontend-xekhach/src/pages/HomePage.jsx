@@ -68,7 +68,7 @@ const [featuredTrips, setFeaturedTrips] = useState([]);
                 <Card className="shadow-lg border-0 mb-5" style={{ borderRadius: '15px' }}>
                     <Card.Body className="p-4">
                         <h4 className="text-center mb-4" style={{ color: '#ef5222', fontWeight: 'bold' }}>
-                            🚌 TÌM CHUYẾN XE PHƯƠNG NAM
+                             TÌM CHUYẾN XE PHƯƠNG NAM
                         </h4>
                         <Form onSubmit={handleSearch}>
                             <Row>
@@ -99,7 +99,7 @@ const [featuredTrips, setFeaturedTrips] = useState([]);
                             </Row>
                             <div className="text-center mt-3">
                                 <Button type="submit" size="lg" style={{ backgroundColor: '#ef5222', borderColor: '#ef5222', borderRadius: '30px', padding: '10px 40px' }} className="fw-bold shadow">
-                                    🔍 TÌM CHUYẾN XE
+                                     TÌM CHUYẾN XE
                                 </Button>
                             </div>
                         </Form>
@@ -153,12 +153,12 @@ const [featuredTrips, setFeaturedTrips] = useState([]);
                     )}
                 </Row>
                 {/* 3. KHUYẾN MÃI & SỰ KIỆN */}
-                <h3 className="fw-bold mb-4 mt-5">🎁 Chương Trình Khuyến Mãi</h3>
+                <h3 className="fw-bold mb-4 mt-5"> Chương Trình Khuyến Mãi</h3>
                 <Row>
                     <Col md={6} className="mb-4">
                         <Card className="border-0 shadow-sm bg-primary text-white p-3 h-100" style={{ backgroundImage: 'linear-gradient(45deg, #ef5222, #f58220)' }}>
                             <Card.Body>
-                                <h4>🎉 Chào Hè Sôi Động - Giảm 20%</h4>
+                                <h4> Chào Hè Sôi Động - Giảm 20%</h4>
                                 <p>Nhập mã <strong>HE2026</strong> để được giảm ngay 20% cho các tuyến đi biển (Nha Trang, Vũng Tàu).</p>
                                 <Button variant="light" className="fw-bold text-danger">Xem Chi Tiết</Button>
                             </Card.Body>
@@ -167,7 +167,7 @@ const [featuredTrips, setFeaturedTrips] = useState([]);
                     <Col md={6} className="mb-4">
                         <Card className="border-0 shadow-sm text-white p-3 h-100" style={{ backgroundImage: 'linear-gradient(45deg, #0052cc, #007bff)' }}>
                             <Card.Body>
-                                <h4>🎓 Ưu Đãi Học Sinh Sinh Viên</h4>
+                                <h4> Ưu Đãi Học Sinh Sinh Viên</h4>
                                 <p>Đăng ký tài khoản bằng thẻ HSSV để luôn được hưởng mức giá vé ưu đãi rẻ hơn 15% trọn đời.</p>
                                 <Button variant="light" className="fw-bold text-primary">Đăng Ký Ngay</Button>
                             </Card.Body>
@@ -176,25 +176,25 @@ const [featuredTrips, setFeaturedTrips] = useState([]);
                 </Row>
 
                 {/* 4. CAM KẾT CHẤT LƯỢNG */}
-                <h3 className="fw-bold mb-4 mt-5 text-center">🏆 Cam Kết Chất Lượng Với Khách Hàng</h3>
+                <h3 className="fw-bold mb-4 mt-5 text-center"> Cam Kết Chất Lượng Với Khách Hàng</h3>
                 <Row className="text-center mb-5">
                     <Col md={4}>
                         <div className="p-4 bg-white rounded shadow-sm h-100">
-                            <h1 className="mb-3">🕒</h1>
+                            <h1 className="mb-3"></h1>
                             <h5 className="fw-bold">Đúng Giờ, Đúng Tuyến</h5>
                             <p className="text-muted">Cam kết xuất bến đúng lịch trình, không cao su, không để khách hàng phải chờ đợi.</p>
                         </div>
                     </Col>
                     <Col md={4}>
                         <div className="p-4 bg-white rounded shadow-sm h-100">
-                            <h1 className="mb-3">🛑</h1>
+                            <h1 className="mb-3"></h1>
                             <h5 className="fw-bold">Không Bắt Khách Dọc Đường</h5>
                             <p className="text-muted">Xe chạy thẳng một mạch, tuyệt đối không chèn ép khách, đảm bảo mỗi người 1 ghế.</p>
                         </div>
                     </Col>
                     <Col md={4}>
                         <div className="p-4 bg-white rounded shadow-sm h-100">
-                            <h1 className="mb-3">🛋️</h1>
+                            <h1 className="mb-3"></h1>
                             <h5 className="fw-bold">Nội Thất Cao Cấp</h5>
                             <p className="text-muted">100% dòng xe đời mới, giường nằm massage, wifi tốc độ cao và chăn gối sạch sẽ.</p>
                         </div>

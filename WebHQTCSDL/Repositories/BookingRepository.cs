@@ -125,5 +125,27 @@ namespace WebHQTCSDL.Repositories
             }
             return history;
         }
+        public async Task<string> PayOrderAsync(string donHangId)
+        {
+            string outMessage = string.Empty;
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_ThanhToanDonHang";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.Add("p_DonHangId", OracleDbType.Varchar2).Value = donHangId;
+
+                    var outParam = new OracleParameter("p_OUT_Message", OracleDbType.Varchar2, 200) { Direction = System.Data.ParameterDirection.Output };
+                    command.Parameters.Add(outParam);
+
+                    await command.ExecuteNonQueryAsync();
+                    outMessage = outParam.Value.ToString();
+                }
+            }
+            return outMessage;
+        }
     }
 }

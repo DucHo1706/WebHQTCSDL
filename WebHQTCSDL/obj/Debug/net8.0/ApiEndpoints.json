@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "AddRoute",
+    "RelativePath": "api/Admin/add-route",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Models.AddRouteRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
     "Method": "AddTrip",
     "RelativePath": "api/Admin/add-trip",
     "HttpMethod": "POST",
@@ -17,8 +33,60 @@
   },
   {
     "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "DeleteRoute",
+    "RelativePath": "api/Admin/delete-route",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tuyenXeId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
     "Method": "GetSchedule",
     "RelativePath": "api/Admin/schedule",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "GetAllTickets",
+    "RelativePath": "api/Admin/tickets",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "UpdateTripStatus",
+    "RelativePath": "api/Admin/update-status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Controllers.AdminController\u002BUpdateStatusRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "GetVehicles",
+    "RelativePath": "api/Admin/vehicles",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -84,6 +152,22 @@
       {
         "Name": "userId",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.BookingsController",
+    "Method": "PayOrder",
+    "RelativePath": "api/Bookings/pay",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Models.PayRequest",
         "IsRequired": true
       }
     ],

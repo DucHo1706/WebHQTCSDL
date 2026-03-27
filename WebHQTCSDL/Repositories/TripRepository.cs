@@ -94,6 +94,7 @@ namespace WebHQTCSDL.Repositories
             var trips = new List<TripDto>();
             using (var connection = new OracleConnection(_connectionString))
             {
+              //  WHERE c.TrangThai = 'SapChay' AND c.ThoiGianXuatPhat > CURRENT_TIMESTAMP
                 await connection.OpenAsync();
                 using (var command = connection.CreateCommand())
                 {
@@ -104,7 +105,7 @@ namespace WebHQTCSDL.Repositories
                         JOIN TUYENXE t ON c.TuyenXeId = t.TuyenXeId
                         JOIN XE x ON c.XeId = x.XeId
                         JOIN LOAIXE lx ON x.LoaiXeId = lx.LoaiXeId
-                        WHERE c.TrangThai = 'SapChay' AND c.ThoiGianXuatPhat > CURRENT_TIMESTAMP
+                        WHERE c.TrangThai = 'SapChay' 
                         ORDER BY c.ThoiGianXuatPhat ASC
                         FETCH FIRST 3 ROWS ONLY";
 

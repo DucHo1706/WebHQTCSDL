@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "D:\\WEB\\WebHQTCSDL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,40 +11,68 @@
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\addtriprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\addtriprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\ticketdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\ticketdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\payrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\payrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\repositories\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\bookinghistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\bookinghistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\tripdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\tripdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\addtriprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\addtriprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\addrouterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\addrouterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\repositories\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\routedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\routedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\repositories\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\tripdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\tripdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\controllers\\reportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\bookinghistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\bookinghistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\controllers\\tripscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,14 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\controllers\\routescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\controllers\\routescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\models\\routedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\models\\routedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|d:\\web\\webhqtcsdl\\webhqtcsdl\\repositories\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E916DEB-8BB3-4D50-8F70-79AD5C549489}|WebHQTCSDL\\WebHQTCSDL.csproj|solutionrelative:webhqtcsdl\\repositories\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -135,31 +147,213 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TicketDetailDto.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\TicketDetailDto.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\TicketDetailDto.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\TicketDetailDto.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Models\\TicketDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T03:28:58.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PayRequest.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\PayRequest.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\PayRequest.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\PayRequest.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Models\\PayRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T03:24:58.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminRepository.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\AdminRepository.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\AdminRepository.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\AdminRepository.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Repositories\\AdminRepository.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAgwOMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T03:38:48.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\AdminController.cs",
               "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\AdminController.cs",
               "RelativeToolTip": "WebHQTCSDL\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAkwDgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAgwIEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T03:39:22.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminRepository.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\AdminRepository.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\AdminRepository.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\AdminRepository.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Repositories\\AdminRepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAgwE0AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "AddTripRequest.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\AddTripRequest.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\AddTripRequest.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\AddTripRequest.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Models\\AddTripRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T03:38:48.123Z"
+              "WhenOpened": "2026-03-20T03:39:04.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TripDto.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\TripDto.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\TripDto.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\TripDto.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Models\\TripDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:34:48.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookingsController.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\BookingsController.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\BookingsController.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\BookingsController.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Controllers\\BookingsController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAkwE4AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:32:38.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddRouteRequest.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\AddRouteRequest.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\AddRouteRequest.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\AddRouteRequest.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Models\\AddRouteRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T03:06:39.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookingRepository.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\BookingRepository.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\BookingRepository.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\BookingRepository.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Repositories\\BookingRepository.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAkwJQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:32:25.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RouteDto.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\RouteDto.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\RouteDto.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\RouteDto.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Models\\RouteDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:26:22.798Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "RouteRepository.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\RouteRepository.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\RouteRepository.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\RouteRepository.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Repositories\\RouteRepository.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwDMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:26:55.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TripRepository.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\TripRepository.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\TripRepository.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\TripRepository.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Repositories\\TripRepository.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAgwGMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:35:01.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Program.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Program.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Program.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:25:46.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\appsettings.json",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\appsettings.json",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\appsettings.json",
+              "RelativeToolTip": "WebHQTCSDL\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-19T18:25:47.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ReportRepository.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\ReportRepository.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\ReportRepository.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\ReportRepository.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Repositories\\ReportRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:52:21.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ReportsController.cs",
+              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\ReportsController.cs",
+              "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\ReportsController.cs",
+              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\ReportsController.cs",
+              "RelativeToolTip": "WebHQTCSDL\\Controllers\\ReportsController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T18:52:34.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "BookingHistoryDto.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\BookingHistoryDto.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\BookingHistoryDto.cs",
@@ -171,57 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TripRepository.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\TripRepository.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\TripRepository.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\TripRepository.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Repositories\\TripRepository.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAkwHoAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:35:01.868Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReportRepository.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\ReportRepository.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\ReportRepository.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\ReportRepository.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Repositories\\ReportRepository.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAuwBMAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:52:21.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReportsController.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\ReportsController.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\ReportsController.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\ReportsController.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Controllers\\ReportsController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:52:34.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AddTripRequest.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\AddTripRequest.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\AddTripRequest.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\AddTripRequest.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Models\\AddTripRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T03:39:04.428Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "ScheduleDto.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\ScheduleDto.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\ScheduleDto.cs",
@@ -233,19 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Program.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Program.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Program.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAQwA0AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:25:46.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "TripsController.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\TripsController.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\TripsController.cs",
@@ -257,43 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TripDto.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\TripDto.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\TripDto.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\TripDto.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Models\\TripDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:34:48.242Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BookingRepository.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\BookingRepository.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\BookingRepository.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\BookingRepository.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Repositories\\BookingRepository.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAkwHsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:32:25.14Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BookingsController.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\BookingsController.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\BookingsController.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\BookingsController.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Controllers\\BookingsController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAkwEEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:32:38.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "AuthRepository.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\AuthRepository.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\AuthRepository.cs",
@@ -305,19 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\appsettings.json",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\appsettings.json",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\appsettings.json",
-              "RelativeToolTip": "WebHQTCSDL\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-19T18:25:47.843Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\AuthController.cs",
@@ -329,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "RevenueDetailDto.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\RevenueDetailDto.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\RevenueDetailDto.cs",
@@ -341,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "ReportResultDto.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\ReportResultDto.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\ReportResultDto.cs",
@@ -353,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "UserDto.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\UserDto.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\UserDto.cs",
@@ -365,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\LoginRequest.cs",
@@ -377,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "CancelRequest.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\CancelRequest.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\CancelRequest.cs",
@@ -389,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "BookingRequest.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\BookingRequest.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\BookingRequest.cs",
@@ -401,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "RoutesController.cs",
               "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Controllers\\RoutesController.cs",
               "RelativeDocumentMoniker": "WebHQTCSDL\\Controllers\\RoutesController.cs",
@@ -410,30 +494,6 @@
               "ViewState": "AgIAABgAAAAAAAAAAAAYwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T18:27:31.584Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "RouteRepository.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\RouteRepository.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Repositories\\RouteRepository.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Repositories\\RouteRepository.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Repositories\\RouteRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:26:55.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "RouteDto.cs",
-              "DocumentMoniker": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\RouteDto.cs",
-              "RelativeDocumentMoniker": "WebHQTCSDL\\Models\\RouteDto.cs",
-              "ToolTip": "D:\\WEB\\WebHQTCSDL\\WebHQTCSDL\\Models\\RouteDto.cs",
-              "RelativeToolTip": "WebHQTCSDL\\Models\\RouteDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T18:26:22.798Z"
             }
           ]
         },

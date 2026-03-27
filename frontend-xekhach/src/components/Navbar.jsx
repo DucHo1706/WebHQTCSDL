@@ -20,19 +20,21 @@ const NavigationBar = () => {
         <Navbar expand="lg" style={{ backgroundColor: '#ef5222' }} variant="dark" className="shadow-sm py-3">
             <Container>
                 <Navbar.Brand onClick={() => navigate('/')} style={{cursor: 'pointer'}} className="fw-bold fs-4">
-                    🚌 PHƯƠNG NAM LINE
+                     PHƯƠNG NAM LINE
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link onClick={() => navigate('/')} className="text-white fw-semibold">TRANG CHỦ</Nav.Link>
                     </Nav>
+                    
                     <Nav>
                         {user ? (
                             <div className="d-flex align-items-center">
+                                
                              <span className="text-white fw-bold me-3">👋 Xin chào, {user.hoTen}</span>
                              <Button variant="outline-light" size="sm" onClick={() => navigate('/history')} className="rounded-pill fw-bold me-2">
-                                 🎫 LỊCH SỬ VÉ
+                                  LỊCH SỬ VÉ
                              </Button>
                              <Button variant="dark" size="sm" onClick={handleLogout} className="rounded-pill fw-bold">
                                  ĐĂNG XUẤT
@@ -40,8 +42,9 @@ const NavigationBar = () => {
                          </div>
                         ) : (
                             <Button variant="outline-light" className="fw-bold px-4 rounded-pill" onClick={() => navigate('/login')}>
-                                👤 ĐĂNG NHẬP
+                                 ĐĂNG NHẬP
                             </Button>
+                            
                         )}
                     </Nav>
                 </Navbar.Collapse>

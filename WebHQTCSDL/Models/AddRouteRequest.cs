@@ -1,8 +1,8 @@
 ﻿namespace WebHQTCSDL.Models
 {
-    public class RouteDto
+    public class AddRouteRequest
     {
-        public string TuyenXeId { get; set; }
+        // Da xoa TuyenXeId
         public string TenTuyen { get; set; }
         public string DiemDi { get; set; }
         public string DiemDen { get; set; }

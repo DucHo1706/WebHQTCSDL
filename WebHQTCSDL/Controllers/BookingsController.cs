@@ -73,5 +73,21 @@ namespace WebHQTCSDL.Controllers
                 return StatusCode(500, new { success = false, message = "Lỗi: " + ex.Message });
             }
         }
+        [HttpPost("pay")]
+        public async Task<IActionResult> PayOrder([FromBody] PayRequest req)
+        {
+            try
+            {
+                string outMessage = await _repository.PayOrderAsync(req.DonHangId);
+                if (outMessage.Contains("trước đó"))
+                    return BadRequest(new { success = false, message = outMessage });
+
+                return Ok(new { success = true, message = outMessage });
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = ex.Message });
+            }
+        }
     }
 }
