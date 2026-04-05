@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebHQTCSDL.Models;
 using WebHQTCSDL.Repositories;
@@ -79,7 +79,8 @@ namespace WebHQTCSDL.Controllers
             try
             {
                 string outMessage = await _repository.PayOrderAsync(req.DonHangId);
-                if (outMessage.Contains("trước đó"))
+                
+                if (outMessage.Contains("LỖI"))
                     return BadRequest(new { success = false, message = outMessage });
 
                 return Ok(new { success = true, message = outMessage });
@@ -87,6 +88,31 @@ namespace WebHQTCSDL.Controllers
             catch (System.Exception ex)
             {
                 return StatusCode(500, new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPost("exchange")]
+        public async Task<IActionResult> ExchangeTicket([FromBody] ExchangeRequest req)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(req.VeCuId))
+                {
+                    return BadRequest(new { success = false, message = "Lỗi: Không tìm thấy Mã Vé Cũ! Vui lòng kiểm tra lại API /Admin/tickets xem đã trả về thuộc tính VeId chưa." });
+                }
+
+                string resultMessage = await _repository.ExchangeTicketAsync(req);
+
+                if (resultMessage.Contains("LỖI") || resultMessage.Contains("lỗi"))
+                {
+                    return BadRequest(new { success = false, message = resultMessage });
+                }
+
+                return Ok(new { success = true, message = resultMessage });
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Lỗi từ CSDL: " + ex.Message });
             }
         }
     }

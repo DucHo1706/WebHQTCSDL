@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WebHQTCSDL.Models;
 using WebHQTCSDL.Repositories;
 
 namespace WebHQTCSDL.Controllers
@@ -17,46 +18,41 @@ namespace WebHQTCSDL.Controllers
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> SearchTrips([FromQuery] string diemDi, [FromQuery] string diemDen, [FromQuery] DateTime ngayDi)
+        public async Task<IActionResult> SearchTrips([FromQuery] string? diemDi, [FromQuery] string? diemDen, [FromQuery] string? ngay)
         {
             try
             {
-                var trips = await _repository.SearchTripsAsync(diemDi, diemDen, ngayDi);
+                // Cắt bỏ khoảng trắng dư thừa (nếu có)
+                diemDi = diemDi?.Trim();
+                diemDen = diemDen?.Trim();
+
+                DateTime? ngayKhachChon = null;
+                if (!string.IsNullOrEmpty(ngay) && DateTime.TryParse(ngay, out DateTime parsedDate))
+                {
+                    ngayKhachChon = parsedDate;
+                }
+
+                var trips = await _repository.SearchTripsAsync(diemDi, diemDen, ngayKhachChon);
                 return Ok(new { success = true, data = trips });
             }
             catch (Exception ex)
             {
-                Console.WriteLine("LỖI: " + ex.Message);
-                return StatusCode(500, new { success = false, message = "Lỗi khi tìm kiếm chuyến xe!" });
+                Console.WriteLine("LỖI TÌM CHUYẾN: " + ex.Message);
+                return StatusCode(500, new { success = false, message = "Lỗi hệ thống khi tìm chuyến xe!" });
             }
         }
-        [HttpGet("{chuyenXeId}/seats")]
-        public async Task<IActionResult> GetBookedSeats(string chuyenXeId)
+
+        [HttpGet("{id}/seats")]
+        public async Task<IActionResult> GetBookedSeats(string id)
         {
             try
             {
-                var seats = await _repository.GetBookedSeatsAsync(chuyenXeId);
-
-                // Trả về mảng các ghế đã đặt (VD: ["A01", "A02", "B05"])
+                var seats = await _repository.GetBookedSeatsAsync(id);
                 return Ok(new { success = true, data = seats });
             }
             catch (Exception ex)
             {
-                Console.WriteLine("LỖI: " + ex.Message);
-                return StatusCode(500, new { success = false, message = "Lỗi khi lấy sơ đồ ghế!" });
-            }
-        }
-        [HttpGet("featured")]
-        public async Task<IActionResult> GetFeaturedTrips()
-        {
-            try
-            {
-                var trips = await _repository.GetFeaturedTripsAsync();
-                return Ok(new { success = true, data = trips });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = "Lỗi hệ thống!" });
+                return StatusCode(500, new { success = false, message = "Lỗi hệ thống khi lấy danh sách ghế: " + ex.Message });
             }
         }
     }

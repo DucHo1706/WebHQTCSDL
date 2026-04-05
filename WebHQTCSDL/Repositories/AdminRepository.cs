@@ -215,6 +215,7 @@ namespace WebHQTCSDL.Repositories
                         {
                             list.Add(new WebHQTCSDL.Models.TicketDetailDto
                             {
+                                VeId = reader["VEID"] != DBNull.Value ? reader["VEID"].ToString() : "",
                                 HoTen = reader["HOTEN"].ToString(),
                                 SoDienThoai = reader["SODIENTHOAI"].ToString(),
                                 NgayDat = Convert.ToDateTime(reader["NGAYDAT"]),
@@ -230,6 +231,98 @@ namespace WebHQTCSDL.Repositories
                 }
             }
             return list;
+        }
+
+        public async Task<string> AdminCancelTicketAsync(string veId, string lyDoHuy)
+        {
+            string outMessage = string.Empty;
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_AdminHuyVe_SuCo";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("p_VeId", OracleDbType.Varchar2).Value = veId;
+                    command.Parameters.Add("p_LyDoHuy", OracleDbType.Varchar2).Value = lyDoHuy;
+
+                    var outParam = new OracleParameter("p_OUT_Message", OracleDbType.Varchar2, 200) { Direction = ParameterDirection.Output };
+                    command.Parameters.Add(outParam);
+
+                    await command.ExecuteNonQueryAsync();
+                    outMessage = outParam.Value.ToString();
+                }
+            }
+            return outMessage;
+        }
+
+        public async Task<string> ClearExpiredTicketsAsync()
+        {
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_HuyVeQuaHan";
+                    command.CommandType = CommandType.StoredProcedure;
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+            return "Đã quét và giải phóng thành công các ghế giữ chỗ quá hạn 15 phút!";
+        }
+
+        public async Task<WebHQTCSDL.Models.AuditLogsResponse> GetAuditLogsAsync()
+        {
+            var response = new WebHQTCSDL.Models.AuditLogsResponse();
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+
+                // 1. Lấy Lịch sử Hủy vé
+                using (var cmd1 = connection.CreateCommand())
+                {
+                    cmd1.CommandText = "SELECT * FROM LICH_SU_HUY_VE ORDER BY ThoiGianHuy DESC";
+                    using (var reader = await cmd1.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            response.CancelLogs.Add(new WebHQTCSDL.Models.CancelLogDto
+                            {
+                                LogId = reader["LOGID"].ToString(),
+                                VeId = reader["VEID"].ToString(),
+                                DonHangId = reader["DONHANGID"].ToString(),
+                                MaGhe = reader["MAGHE"].ToString(),
+                                ThoiGianHuy = Convert.ToDateTime(reader["THOIGIANHUY"]),
+                                NguoiHuy = reader["NGUOIHUY"].ToString()
+                            });
+                        }
+                    }
+                }
+
+                // 2. Lấy Lịch sử Đổi vé
+                using (var cmd2 = connection.CreateCommand())
+                {
+                    cmd2.CommandText = "SELECT MaDoiVe, KhachHangId, VeCuId, VeMoiId, TienHoan, TienThuThem, ThoiGian FROM LICH_SU_DOI_VE ORDER BY ThoiGian DESC";
+                    using (var reader = await cmd2.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            response.ExchangeLogs.Add(new WebHQTCSDL.Models.ExchangeLogDto
+                            {
+                                MaDoiVe = reader["MADOIVE"].ToString(),
+                                KhachHangId = reader["KHACHHANGID"].ToString(),
+                                VeCuId = reader["VECUID"].ToString(),
+                                VeMoiId = reader["VEMOIID"].ToString(),
+                                TienHoan = Convert.ToDecimal(reader["TIENHOAN"]),
+                                TienThuThem = Convert.ToDecimal(reader["TIENTHUTHEM"]),
+                                ThoiGian = Convert.ToDateTime(reader["THOIGIAN"])
+                            });
+                        }
+                    }
+                }
+            }
+            return response;
         }
     }
 }

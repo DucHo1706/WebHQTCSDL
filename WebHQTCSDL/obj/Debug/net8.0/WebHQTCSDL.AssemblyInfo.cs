@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebHQTCSDL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71a55ffc638a0f2d0f2ce86e9bd9e14f66379786")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1cdd5bfb597531059cb18bee4ba1d42404f1f3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebHQTCSDL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebHQTCSDL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

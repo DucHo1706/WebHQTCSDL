@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System;
@@ -126,6 +126,52 @@ namespace WebHQTCSDL.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { success = false, message = "Loi: " + ex.Message });
+            }
+        }
+
+        [HttpPost("cancel-ticket")]
+        public async Task<IActionResult> AdminCancelTicket([FromBody] AdminCancelRequest req)
+        {
+            try
+            {
+                string outMessage = await _repository.AdminCancelTicketAsync(req.VeId, req.LyDoHuy);
+                
+                if (outMessage.Contains("LỖI") || outMessage.Contains("LOI"))
+                    return BadRequest(new { success = false, message = outMessage });
+
+                return Ok(new { success = true, message = outMessage });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpPost("clear-expired-tickets")]
+        public async Task<IActionResult> ClearExpiredTickets()
+        {
+            try
+            {
+                string message = await _repository.ClearExpiredTicketsAsync();
+                return Ok(new { success = true, message = message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpGet("audit-logs")]
+        public async Task<IActionResult> GetAuditLogs()
+        {
+            try
+            {
+                var data = await _repository.GetAuditLogsAsync();
+                return Ok(new { success = true, data = data });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Lỗi hệ thống: " + ex.Message });
             }
         }
     }

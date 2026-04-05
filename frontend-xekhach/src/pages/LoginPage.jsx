@@ -44,6 +44,10 @@ const LoginPage = () => {
                     <Button type="submit" className="w-100 fw-bold rounded-pill" style={{ backgroundColor: '#ef5222', border: 'none' }}>
                         ĐĂNG NHẬP
                     </Button>
+                    <div className="text-center mt-4">
+                        <span>Chưa có tài khoản? </span>
+                        <span className="text-primary fw-bold" style={{ cursor: 'pointer' }} onClick={() => navigate('/register')}>Đăng ký ngay</span>
+                    </div>
                 </Form>
             </Card>
         </Container>

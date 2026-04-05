@@ -12,6 +12,8 @@ builder.Services.AddScoped<BookingRepository>();
 builder.Services.AddScoped<TripRepository>();
 builder.Services.AddScoped<AuthRepository>();
 builder.Services.AddScoped<AdminRepository>();
+builder.Services.AddScoped<ReportRepository>();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

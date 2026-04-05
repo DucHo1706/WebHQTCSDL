@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, Table, Badge, Button, Modal, Row, Col, Tabs, Tab } from 'react-bootstrap';
+import { Container, Card, Table, Badge, Button, Modal, Row, Col, Tabs, Tab, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
@@ -10,12 +10,16 @@ const HistoryPage = () => {
 
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [selectedTicket, setSelectedTicket] = useState(null);
+    
+    // --- STATE CHO POPUP THÔNG BÁO ---
+    const [dialog, setDialog] = useState({ show: false, type: 'alert', title: '', message: '', onConfirm: null, isSuccess: false });
+    const showAlert = (message, isSuccess = false, title = 'Thông báo') => setDialog({ show: true, type: 'alert', title, message, onConfirm: null, isSuccess });
+    const showConfirm = (message, onConfirm, title = 'Xác nhận') => setDialog({ show: true, type: 'confirm', title, message, onConfirm, isSuccess: false });
 
     useEffect(() => {
         const fetchHistory = async () => {
             const userStr = localStorage.getItem('user');
             if (!userStr) {
-                alert("Vui long dang nhap de xem lich su!");
                 navigate('/login');
                 return;
             }
@@ -34,32 +38,17 @@ const HistoryPage = () => {
         fetchHistory();
     }, [navigate]);
 
-    const handleCancelOrder = async (donHangId) => {
-        if (!window.confirm("Ban co chac chan muon huy don hang nay? Tien se duoc hoan lai (neu da thanh toan).")) return;
-        
-        try {
-            const res = await api.post('/Bookings/cancel', { donHangId });
-            if (res.data.success) {
-                alert(res.data.message);
-                window.location.reload(); 
+    const handlePayOrder = (donHangId) => {
+        showConfirm("Xác nhận thanh toán cho đơn hàng này?", async () => {
+            try {
+                const res = await api.post('/Bookings/pay', { donHangId });
+                if (res.data.success) {
+                    showAlert("Thanh toán thành công! Vé của bạn đã được xuất.", true);
+                }
+            } catch (error) {
+                showAlert("Lỗi thanh toán:\n" + (error.response?.data?.message || error.message));
             }
-        } catch (error) {
-            alert("Loi huy ve:\n" + (error.response?.data?.message || error.message));
-        }
-    };
-
-    const handlePayOrder = async (donHangId) => {
-        if (!window.confirm("Xac nhan thanh toan cho don hang nay?")) return;
-        
-        try {
-            const res = await api.post('/Bookings/pay', { donHangId });
-            if (res.data.success) {
-                alert("Thanh toan thanh cong! Ve cua ban da duoc xuat.");
-                window.location.reload(); 
-            }
-        } catch (error) {
-            alert("Loi thanh toan:\n" + (error.response?.data?.message || error.message));
-        }
+        });
     };
 
     const handleViewTicket = (ticket) => {
@@ -112,12 +101,6 @@ const HistoryPage = () => {
                                         Thanh Toan
                                     </Button>
                                 )}
-                                
-                                {item.trangThaiVe !== 'DaHuy' && (
-                                    <Button variant="outline-danger" size="sm" onClick={() => handleCancelOrder(item.donHangId)}>
-                                        Huy Ve
-                                    </Button>
-                                )}
                             </td>
                         </tr>
                     ))
@@ -130,6 +113,10 @@ const HistoryPage = () => {
         <Container className="py-5" style={{ minHeight: '70vh' }}>
             <h3 className="fw-bold mb-4" style={{ color: '#ef5222' }}>LICH SU DAT VE CUA TOI</h3>
             
+            <Alert variant="info" className="fw-bold shadow-sm mb-4" style={{ borderLeft: '5px solid #0dcaf0' }}>
+                💡 Để đảm bảo quyền lợi, tính năng Đổi/Hủy vé trực tuyến đã được khóa. Quý khách có nhu cầu thay đổi lịch trình vui lòng liên hệ Hotline <strong className="text-danger">1900 1234</strong> hoặc đến trực tiếp quầy vé để được nhân viên hỗ trợ.
+            </Alert>
+
             {/* Su dung Tabs de chia loai ve */}
             <Card className="shadow-sm border-0 rounded-3 p-3 bg-light">
                 <Tabs defaultActiveKey="success" className="mb-3">
@@ -210,6 +197,24 @@ const HistoryPage = () => {
                     {selectedTicket?.trangThaiVe === 'DaXuat' && (
                         <Button variant="primary" onClick={() => window.print()}>In Ve</Button>
                     )}
+                </Modal.Footer>
+            </Modal>
+
+            {/* COMPONENT POPUP THÔNG BÁO */}
+            <Modal show={dialog.show} onHide={() => { setDialog({ ...dialog, show: false }); if (dialog.isSuccess) window.location.reload(); }} centered backdrop="static">
+                <Modal.Header closeButton style={{ backgroundColor: dialog.type === 'alert' ? (dialog.isSuccess ? '#198754' : '#17a2b8') : '#ffc107', color: dialog.type === 'alert' ? '#fff' : '#000' }}>
+                    <Modal.Title className="fw-bold">{dialog.title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="p-4 text-center">
+                    <p className="fs-5 mb-0 lh-base">{dialog.message}</p>
+                </Modal.Body>
+                <Modal.Footer className="justify-content-center">
+                    {dialog.type === 'confirm' && <Button variant="secondary" className="px-4" onClick={() => setDialog({ ...dialog, show: false })}>Hủy Bỏ</Button>}
+                    <Button variant={dialog.type === 'confirm' ? 'primary' : 'info'} className="fw-bold px-4 text-white" onClick={() => {
+                        if (dialog.onConfirm) dialog.onConfirm();
+                        setDialog({ ...dialog, show: false });
+                        if (dialog.isSuccess) window.location.reload();
+                    }}>Xác Nhận</Button>
                 </Modal.Footer>
             </Modal>
         </Container>

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Data;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -137,6 +137,31 @@ namespace WebHQTCSDL.Repositories
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.Add("p_DonHangId", OracleDbType.Varchar2).Value = donHangId;
+
+                    var outParam = new OracleParameter("p_OUT_Message", OracleDbType.Varchar2, 200) { Direction = System.Data.ParameterDirection.Output };
+                    command.Parameters.Add(outParam);
+
+                    await command.ExecuteNonQueryAsync();
+                    outMessage = outParam.Value.ToString();
+                }
+            }
+            return outMessage;
+        }
+
+        public async Task<string> ExchangeTicketAsync(ExchangeRequest request)
+        {
+            string outMessage = string.Empty;
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_DoiVe";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.Add("p_VeCuId", OracleDbType.Varchar2).Value = request.VeCuId;
+                    command.Parameters.Add("p_ChuyenXeMoiId", OracleDbType.Varchar2).Value = request.ChuyenXeMoiId;
+                    command.Parameters.Add("p_MaGheMoi", OracleDbType.Varchar2).Value = request.MaGheMoi;
 
                     var outParam = new OracleParameter("p_OUT_Message", OracleDbType.Varchar2, 200) { Direction = System.Data.ParameterDirection.Output };
                     command.Parameters.Add(outParam);

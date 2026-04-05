@@ -8,7 +8,7 @@ const TripsPage = () => {
     const [searchParams] = useSearchParams();
     const diemDi = searchParams.get('diemDi');
     const diemDen = searchParams.get('diemDen');
-    const ngayDi = searchParams.get('ngayDi');
+    const ngayDi = searchParams.get('ngayDi') || '';
 
     const [trips, setTrips] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,11 +18,28 @@ const TripsPage = () => {
     const [bookedSeats, setBookedSeats] = useState([]);
     const [selectedSeat, setSelectedSeat] = useState('');
 
+    // --- STATE CHO POPUP THÔNG BÁO ---
+    const [dialog, setDialog] = useState({ show: false, title: '', message: '', isSuccess: false });
+    const showAlert = (message, isSuccess = false, title = 'Thông báo') => setDialog({ show: true, title, message, isSuccess });
+    
+    const handleCloseDialog = () => {
+        setDialog({ ...dialog, show: false });
+        if (dialog.isSuccess) {
+            window.location.reload(); // Reset lại sơ đồ ghế sau khi báo thành công
+        }
+    };
+
     useEffect(() => {
         const fetchTrips = async () => {
             try {
+                const queryParams = { diemDi: diemDi?.trim(), diemDen: diemDen?.trim() };
+                // Nếu có ngày đi thì mới nhét vào query parameters
+                if (ngayDi) queryParams.ngay = ngayDi;
+
                 // Gọi API C# lấy danh sách chuyến xe
-                const response = await api.get(`/Trips/search?diemDi=${diemDi}&diemDen=${diemDen}&ngayDi=${ngayDi}`);
+                const response = await api.get('/Trips/search', {
+                    params: queryParams
+                });
                 if (response.data.success) {
                     setTrips(response.data.data);
                 }
@@ -33,7 +50,7 @@ const TripsPage = () => {
             }
         };
 
-        if (diemDi && diemDen && ngayDi) {
+        if (diemDi && diemDen) {
             fetchTrips();
         } else {
             setLoading(false);
@@ -58,12 +75,11 @@ const TripsPage = () => {
     const handleBookTicket = async () => {
         const userStr = localStorage.getItem('user');
         if (!userStr) {
-            alert("Vui lòng đăng nhập để đặt vé!");
-            navigate('/login');
+            showAlert("Vui lòng đăng nhập để đặt vé!", false);
             return;
         }
         if (!selectedSeat) {
-            alert("Vui lòng chọn 1 ghế trống!");
+            showAlert("Vui lòng chọn 1 ghế trống!", false);
             return;
         }
 
@@ -75,12 +91,11 @@ const TripsPage = () => {
                 maGhe: selectedSeat
             });
             if (res.data.success) {
-                alert(" " + res.data.message);
                 setShowModal(false);
-                window.location.reload(); // Load lại để update số ghế
+                showAlert(res.data.message, true);
             }
         } catch (err) {
-            alert("Lỗi đặt vé: " + (err.response?.data?.message || err.message));
+            showAlert("Lỗi đặt vé: " + (err.response?.data?.message || err.message), false);
         }
     };
 
@@ -96,7 +111,9 @@ const TripsPage = () => {
             <h3 className="fw-bold mb-4" style={{ color: '#ef5222' }}>
                  KẾT QUẢ TÌM KIẾM: {diemDi} ➔ {diemDen}
             </h3>
-            <p className="text-muted fw-bold mb-4">Ngày khởi hành: {new Date(ngayDi).toLocaleDateString('vi-VN')}</p>
+            <p className="text-muted fw-bold mb-4">
+                {ngayDi ? `Ngày khởi hành: ${new Date(ngayDi).toLocaleDateString('vi-VN')}` : 'Tất cả chuyến xe sắp tới'}
+            </p>
 
             {loading ? (
                 <div className="text-center py-5">
@@ -194,6 +211,19 @@ const TripsPage = () => {
                 </Modal.Footer>
             </Modal>
             
+            {/* POPUP THÔNG BÁO KẾT QUẢ */}
+            <Modal show={dialog.show} onHide={handleCloseDialog} centered backdrop="static">
+                <Modal.Header closeButton style={{ backgroundColor: dialog.isSuccess ? '#198754' : '#ef5222', color: 'white' }}>
+                    <Modal.Title className="fw-bold">{dialog.title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="p-4 text-center">
+                    <h5 className="mb-0 lh-base">{dialog.message}</h5>
+                </Modal.Body>
+                <Modal.Footer className="justify-content-center">
+                    <Button variant={dialog.isSuccess ? "success" : "primary"} className="px-4 fw-bold" onClick={handleCloseDialog}>ĐÃ HIỂU</Button>
+                </Modal.Footer>
+            </Modal>
+
         </Container>
     );
 };

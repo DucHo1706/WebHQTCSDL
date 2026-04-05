@@ -6,6 +6,6 @@
         public string TenTuyen { get; set; }
         public string DiemDi { get; set; }
         public string DiemDen { get; set; }
-        public decimal KhoangCach { get; set; }
+        public int KhoangCach { get; set; }
     }
 }

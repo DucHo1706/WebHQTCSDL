@@ -1,7 +1,8 @@
-﻿namespace WebHQTCSDL.Models
+﻿﻿namespace WebHQTCSDL.Models
 {
     public class TicketDetailDto
     {
+        public string VeId { get; set; }
         public string HoTen { get; set; }
         public string SoDienThoai { get; set; }
         public DateTime NgayDat { get; set; }

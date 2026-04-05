@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -50,6 +50,21 @@ namespace WebHQTCSDL.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { success = false, message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterRequest req)
+        {
+            try
+            {
+                string message = await _repository.RegisterAsync(req.HoTen, req.SoDienThoai, req.Email, req.MatKhau);
+                return Ok(new { success = true, message = message });
+            }
+            catch (Exception ex)
+            {
+                // Bắt lỗi từ Oracle Trigger (Ví dụ: Lỗi số điện thoại hoặc lỗi trùng SĐT)
+                return BadRequest(new { success = false, message = ex.Message });
             }
         }
 

@@ -1,207 +1,251 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Container, Card, Form, Button, Row, Col, Badge } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 const HomePage = () => {
+    const [diemDi, setDiemDi] = useState('');
+    const [diemDen, setDiemDen] = useState('');
+    const [ngay, setNgay] = useState('');
+    
+    const [allRoutes, setAllRoutes] = useState([]);
+    const [diemDiList, setDiemDiList] = useState([]);
+    const [diemDenList, setDiemDenList] = useState([]);
+    
     const navigate = useNavigate();
-    const [routes, setRoutes] = useState([]);
-    const [uniqueDiemDi, setUniqueDiemDi] = useState([]);
-    const [uniqueDiemDen, setUniqueDiemDen] = useState([]);
-    const [searchForm, setSearchForm] = useState({ diemDi: '', diemDen: '', ngayDi: '' });
-const [featuredTrips, setFeaturedTrips] = useState([]);
+
+    // Gọi API lấy danh sách tuyến xe
     useEffect(() => {
-        const fetchRoutes = async () => {
+        const fetchLocations = async () => {
             try {
-                const response = await api.get('/Routes'); 
-                if (response.data.success) {
-                    const data = response.data.data;
-                    setRoutes(data);
-                    setUniqueDiemDi([...new Set(data.map(item => item.diemDi))]);
-                    setUniqueDiemDen([...new Set(data.map(item => item.diemDen))]);
+                const res = await api.get('/Routes');
+                if (res.data && res.data.success) {
+                    const routes = res.data.data;
+                    setAllRoutes(routes);
+                    
+                    // Lấy danh sách điểm đi duy nhất
+                    const uniqueDi = [...new Set(routes.map(r => r.diemDi))].sort();
+                    setDiemDiList(uniqueDi);
+                    
+                    // Mặc định Điểm đến hiển thị tất cả
+                    const uniqueDen = [...new Set(routes.map(r => r.diemDen))].sort();
+                    setDiemDenList(uniqueDen);
                 }
             } catch (error) {
-                console.error("Lỗi khi lấy danh sách tuyến xe:", error);
+                console.error("Lỗi khi tải danh sách địa điểm:", error);
             }
         };
-        const fetchFeaturedTrips = async () => {
-            try {
-                const response = await api.get('/Trips/featured');
-                if (response.data.success) {
-                    setFeaturedTrips(response.data.data);
-                }
-            } catch (error) {
-                console.error("Lỗi lấy chuyến xe nổi bật:", error);
-            }
-        };
-        fetchRoutes();
-        fetchFeaturedTrips();
+        fetchLocations();
     }, []);
 
-    const handleChange = (e) => {
-        setSearchForm({ ...searchForm, [e.target.name]: e.target.value });
+    // Xử lý khi chọn Điểm Đi để lọc Điểm Đến
+    const handleDiemDiChange = (e) => {
+        const selectedDi = e.target.value;
+        setDiemDi(selectedDi);
+        setDiemDen(''); // Reset Điểm đến khi đổi Điểm đi
+
+        if (selectedDi) {
+            // Lọc ra các Điểm đến có tuyến từ Điểm đi đã chọn
+            const filteredDen = allRoutes.filter(r => r.diemDi === selectedDi).map(r => r.diemDen);
+            setDiemDenList([...new Set(filteredDen)].sort());
+        } else {
+            // Trả lại toàn bộ Điểm đến nếu không chọn Điểm đi
+            const allDen = [...new Set(allRoutes.map(r => r.diemDen))].sort();
+            setDiemDenList(allDen);
+        }
     };
 
-   const handleSearch = (e) => {
+    const handleSearch = (e) => {
         e.preventDefault();
-        if (!searchForm.diemDi || !searchForm.diemDen || !searchForm.ngayDi) {
-            alert("Vui lòng chọn đầy đủ Điểm đi, Điểm đến và Ngày đi!");
+        if (!diemDi || !diemDen) {
+            alert("Vui lòng chọn Điểm đi và Điểm đến!");
             return;
         }
-
-        // Chuyển trang và truyền dữ liệu lên thanh URL (VD: /trips?diemDi=TP.HCM&diemDen=Đà Lạt&ngayDi=2026-03-20)
-        navigate(`/trips?diemDi=${searchForm.diemDi}&diemDen=${searchForm.diemDen}&ngayDi=${searchForm.ngayDi}`);
+        // Chuyển hướng người dùng sang trang TripsPage cùng với URL Parameters
+        navigate(`/trips?diemDi=${diemDi}&diemDen=${diemDen}&ngayDi=${ngay}`);
     };
-    
 
     return (
-        <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
-            {/* 1. BANNER & FORM TÌM KIẾM (CŨ) */}
-            <div style={{
-                backgroundImage: 'url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop")',
-                backgroundSize: 'cover', backgroundPosition: 'center', height: '450px', position: 'relative'
+        <div>
+            {/* Hero Section with Banner Image */}
+            <div style={{ 
+                backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop")', 
+                backgroundSize: 'cover', 
+                backgroundPosition: 'center', 
+                padding: '120px 0 100px 0', 
+                color: 'white', 
+                textAlign: 'center' 
             }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.4)' }}></div>
-            </div>
-
-            <Container style={{ marginTop: '-80px', position: 'relative', zIndex: 10 }}>
-                <Card className="shadow-lg border-0 mb-5" style={{ borderRadius: '15px' }}>
-                    <Card.Body className="p-4">
-                        <h4 className="text-center mb-4" style={{ color: '#ef5222', fontWeight: 'bold' }}>
-                             TÌM CHUYẾN XE PHƯƠNG NAM
-                        </h4>
+                <Container>
+                    <h1 className="fw-bold mb-3 display-4">HÀNH TRÌNH VẠN DẶM, KHỞI ĐẦU TỪ ĐÂY</h1>
+                    <p className="fs-5 mb-5 text-light">Hệ thống đặt vé xe khách trực tuyến nhanh chóng, an toàn và uy tín nhất.</p>
+                    
+                    <Card className="shadow p-4 mx-auto" style={{ maxWidth: '900px', borderRadius: '15px', color: '#333' }}>
                         <Form onSubmit={handleSearch}>
-                            <Row>
-                                <Col md={4} className="mb-3">
+                            <Row className="g-3 text-start">
+                                <Col md={3}>
                                     <Form.Group>
-                                        <Form.Label className="fw-bold">Điểm Đi</Form.Label>
-                                        <Form.Select name="diemDi" value={searchForm.diemDi} onChange={handleChange}>
-                                            <option value="">-- Chọn điểm đi --</option>
-                                            {uniqueDiemDi.map((diem, idx) => <option key={idx} value={diem}>{diem}</option>)}
+                                        <Form.Label className="fw-bold text-secondary">ĐIỂM ĐI</Form.Label>
+                                        <Form.Select value={diemDi} onChange={handleDiemDiChange} required className="p-2 fw-semibold text-dark">
+                                            <option value="">-- Chọn Điểm Đi --</option>
+                                            {diemDiList.map(loc => <option key={loc} value={loc}>{loc}</option>)}
                                         </Form.Select>
                                     </Form.Group>
                                 </Col>
-                                <Col md={4} className="mb-3">
+                                <Col md={3}>
                                     <Form.Group>
-                                        <Form.Label className="fw-bold">Điểm Đến</Form.Label>
-                                        <Form.Select name="diemDen" value={searchForm.diemDen} onChange={handleChange}>
-                                            <option value="">-- Chọn điểm đến --</option>
-                                            {uniqueDiemDen.map((diem, idx) => <option key={idx} value={diem}>{diem}</option>)}
+                                        <Form.Label className="fw-bold text-secondary">ĐIỂM ĐẾN</Form.Label>
+                                        <Form.Select value={diemDen} onChange={e => setDiemDen(e.target.value)} required className="p-2 fw-semibold text-dark">
+                                            <option value="">-- Chọn Điểm Đến --</option>
+                                            {diemDenList.map(loc => <option key={loc} value={loc}>{loc}</option>)}
                                         </Form.Select>
                                     </Form.Group>
                                 </Col>
-                                <Col md={4} className="mb-3">
+                                <Col md={3}>
                                     <Form.Group>
-                                        <Form.Label className="fw-bold">Ngày Đi</Form.Label>
-                                        <Form.Control type="date" name="ngayDi" value={searchForm.ngayDi} onChange={handleChange} min={new Date().toISOString().split("T")[0]} />
+                                        <Form.Label className="fw-bold text-secondary">NGÀY ĐI (Tùy chọn)</Form.Label>
+                                        <Form.Control type="date" value={ngay} onChange={e => setNgay(e.target.value)} className="p-2" />
                                     </Form.Group>
+                                </Col>
+                                <Col md={3} className="d-flex align-items-end">
+                                    <Button type="submit" className="w-100 fw-bold p-2" style={{ backgroundColor: '#ef5222', border: 'none' }}>
+                                        TÌM CHUYẾN XE
+                                    </Button>
                                 </Col>
                             </Row>
-                            <div className="text-center mt-3">
-                                <Button type="submit" size="lg" style={{ backgroundColor: '#ef5222', borderColor: '#ef5222', borderRadius: '30px', padding: '10px 40px' }} className="fw-bold shadow">
-                                     TÌM CHUYẾN XE
-                                </Button>
-                            </div>
                         </Form>
-                    </Card.Body>
-                </Card>
+                    </Card>
+                </Container>
+            </div>
 
-                {/* 2. TUYẾN XE PHỔ BIẾN */}
-                <h3 className="fw-bold mb-4 mt-5"> Chuyến Xe Sắp Khởi Hành</h3>
-                <Row>
-                    {featuredTrips.length === 0 ? (
-                        <p className="text-muted">Đang tải dữ liệu chuyến xe...</p>
-                    ) : (
-                        featuredTrips.map((trip, index) => {
-                            // Mảng ảnh minh họa cho sinh động
-                            const images = [
-                                "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=2071&auto=format&fit=crop",
-                                "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=2111&auto=format&fit=crop",
-                                "https://images.unsplash.com/photo-1576487248805-fc473a246813?q=80&w=2008&auto=format&fit=crop"
-                            ];
-                            return (
-                                <Col md={4} className="mb-4" key={trip.chuyenXeId}>
-                                    <Card className="border-0 shadow-sm h-100 banner-card">
-                                        <Card.Img variant="top" src={images[index % 3]} height="200" style={{ objectFit: 'cover' }} />
-                                        <Card.Body>
-                                            <Card.Title className="fw-bold">{trip.tenTuyen}</Card.Title>
-                                            <Card.Text className="text-muted mb-2">
-                                                Khởi hành: <strong className="text-dark">{new Date(trip.thoiGianXuatPhat).toLocaleString('vi-VN')}</strong><br/>
-                                                Dòng xe: {trip.tenLoai}
-                                            </Card.Text>
-                                            <div className="d-flex justify-content-between align-items-center mt-3">
-                                                <h5 style={{ color: '#ef5222', margin: 0 }}>{trip.giaVeCoBan.toLocaleString('vi-VN')}đ</h5>
-                                              <Button 
-                                                    variant="outline-danger" 
-                                                    size="sm" 
-                                                    className="fw-bold rounded-pill"
-                                                    onClick={() => {
-                                                        // Tách lấy phần YYYY-MM-DD từ thời gian xuất phát
-                                                        const ngayDiFormat = trip.thoiGianXuatPhat.split('T')[0];
-                                                        
-                                                        // Chuyển sang trang kết quả giống như thao tác submit form
-                                                        navigate(`/trips?diemDi=${trip.diemDi}&diemDen=${trip.diemDen}&ngayDi=${ngayDiFormat}`);
-                                                    }} >
-                                                    TÌM VÉ NGAY
-                                                </Button>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            );
-                        })
-                    )}
+            {/* Tuyến Đường Phổ Biến Section */}
+            <Container className="py-5 mt-4">
+                <h3 className="text-center fw-bold mb-5" style={{ color: '#333' }}>CÁC TUYẾN ĐƯỜNG PHỔ BIẾN</h3>
+                <Row className="g-4">
+                    {[
+                        { di: 'TP.HCM', den: 'Đà Lạt', gia: '250.000', km: '300km', color1: '#ff7e5f', color2: '#feb47b' },
+                        { di: 'TP.HCM', den: 'Nha Trang', gia: '350.000', km: '430km', color1: '#00c6ff', color2: '#0072ff' },
+                        { di: 'TP.HCM', den: 'Cần Thơ', gia: '150.000', km: '165km', color1: '#11998e', color2: '#38ef7d' },
+                        { di: 'Nha Trang', den: 'Đà Lạt', gia: '200.000', km: '140km', color1: '#b92b27', color2: '#1565C0' }
+                    ].map((route, idx) => (
+                        <Col md={3} key={idx}>
+                            <Card 
+                                className="border-0 shadow-sm text-white h-100 transition-hover" 
+                                style={{ borderRadius: '15px', background: `linear-gradient(135deg, ${route.color1} 0%, ${route.color2} 100%)`, cursor: 'pointer' }} 
+                                onClick={() => { 
+                                    setDiemDi(route.di); 
+                                    setDiemDen(route.den); 
+                                    window.scrollTo({top: 0, behavior: 'smooth'}); 
+                                }}
+                            >
+                                <Card.Body className="p-4 d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h4 className="fw-bold mb-1">{route.di}</h4>
+                                        <div className="mb-2 opacity-75 fw-semibold">Đến</div>
+                                        <h4 className="fw-bold">{route.den}</h4>
+                                    </div>
+                                    <div className="mt-4 pt-3 border-top border-light border-opacity-25 d-flex justify-content-between align-items-center">
+                                        <span className="fw-bold fs-5">Từ {route.gia}đ</span>
+                                        <Badge bg="light" text="dark" className="px-2 py-1">{route.km}</Badge>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
                 </Row>
-                {/* 3. KHUYẾN MÃI & SỰ KIỆN */}
-                <h3 className="fw-bold mb-4 mt-5"> Chương Trình Khuyến Mãi</h3>
-                <Row>
-                    <Col md={6} className="mb-4">
-                        <Card className="border-0 shadow-sm bg-primary text-white p-3 h-100" style={{ backgroundImage: 'linear-gradient(45deg, #ef5222, #f58220)' }}>
-                            <Card.Body>
-                                <h4> Chào Hè Sôi Động - Giảm 20%</h4>
-                                <p>Nhập mã <strong>HE2026</strong> để được giảm ngay 20% cho các tuyến đi biển (Nha Trang, Vũng Tàu).</p>
-                                <Button variant="light" className="fw-bold text-danger">Xem Chi Tiết</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={6} className="mb-4">
-                        <Card className="border-0 shadow-sm text-white p-3 h-100" style={{ backgroundImage: 'linear-gradient(45deg, #0052cc, #007bff)' }}>
-                            <Card.Body>
-                                <h4> Ưu Đãi Học Sinh Sinh Viên</h4>
-                                <p>Đăng ký tài khoản bằng thẻ HSSV để luôn được hưởng mức giá vé ưu đãi rẻ hơn 15% trọn đời.</p>
-                                <Button variant="light" className="fw-bold text-primary">Đăng Ký Ngay</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-
-                {/* 4. CAM KẾT CHẤT LƯỢNG */}
-                <h3 className="fw-bold mb-4 mt-5 text-center"> Cam Kết Chất Lượng Với Khách Hàng</h3>
-                <Row className="text-center mb-5">
-                    <Col md={4}>
-                        <div className="p-4 bg-white rounded shadow-sm h-100">
-                            <h1 className="mb-3"></h1>
-                            <h5 className="fw-bold">Đúng Giờ, Đúng Tuyến</h5>
-                            <p className="text-muted">Cam kết xuất bến đúng lịch trình, không cao su, không để khách hàng phải chờ đợi.</p>
-                        </div>
-                    </Col>
-                    <Col md={4}>
-                        <div className="p-4 bg-white rounded shadow-sm h-100">
-                            <h1 className="mb-3"></h1>
-                            <h5 className="fw-bold">Không Bắt Khách Dọc Đường</h5>
-                            <p className="text-muted">Xe chạy thẳng một mạch, tuyệt đối không chèn ép khách, đảm bảo mỗi người 1 ghế.</p>
-                        </div>
-                    </Col>
-                    <Col md={4}>
-                        <div className="p-4 bg-white rounded shadow-sm h-100">
-                            <h1 className="mb-3"></h1>
-                            <h5 className="fw-bold">Nội Thất Cao Cấp</h5>
-                            <p className="text-muted">100% dòng xe đời mới, giường nằm massage, wifi tốc độ cao và chăn gối sạch sẽ.</p>
-                        </div>
-                    </Col>
-                </Row>
-
             </Container>
+
+            {/* Khuyến Mãi Section */}
+            <Container className="py-5">
+                <h3 className="text-center fw-bold mb-5" style={{ color: '#333' }}>ƯU ĐÃI NỔI BẬT</h3>
+                <Row className="g-4">
+                    <Col md={6}>
+                        <Card className="border-0 shadow-sm overflow-hidden h-100 rounded-4">
+                            <div style={{ height: '250px', backgroundImage: 'url("https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=2069&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                            <Card.Body className="p-4">
+                                <Badge bg="danger" className="mb-2 px-3 py-2">MỚI</Badge>
+                                <h4 className="fw-bold">Giảm 20% cho Khách Hàng Mới</h4>
+                                <p className="text-muted fs-5">Nhập mã <strong>CHAO-BAN</strong> để được giảm ngay 20% cho lần đặt vé đầu tiên trên hệ thống Phương Nam Line.</p>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={6}>
+                        <Card className="border-0 shadow-sm overflow-hidden h-100 rounded-4">
+                            <div style={{ height: '250px', backgroundImage: 'url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                            <Card.Body className="p-4">
+                                <Badge bg="warning" text="dark" className="mb-2 px-3 py-2">HOT</Badge>
+                                <h4 className="fw-bold">Trải nghiệm Limousine Sài Gòn - Đà Lạt</h4>
+                                <p className="text-muted fs-5">Giảm giá siêu sốc đầu tháng 3. Tận hưởng không gian phòng nằm riêng tư với mức giá chỉ từ 250.000đ.</p>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+
+            {/* Info Section */}
+            <Container className="py-5 bg-light rounded-4 my-4">
+                <h3 className="text-center fw-bold mb-5" style={{ color: '#333' }}>TẠI SAO CHỌN PHƯƠNG NAM LINE?</h3>
+                <Row className="text-center g-4">
+                    <Col md={4}>
+                        <Card className="h-100 border-0 shadow-sm p-4 bg-white" style={{ borderRadius: '15px' }}>
+                            <h4 className="fw-bold text-primary mb-3">100+</h4>
+                            <h5 className="fw-bold">Tuyến Xe Mở Rộng</h5>
+                            <p className="text-muted">Kết nối hàng chục tỉnh thành trên khắp cả nước, mang đến nhiều sự lựa chọn cho khách hàng.</p>
+                        </Card>
+                    </Col>
+                    <Col md={4}>
+                        <Card className="h-100 border-0 shadow-sm p-4 bg-white" style={{ borderRadius: '15px' }}>
+                            <h4 className="fw-bold text-success mb-3">100%</h4>
+                            <h5 className="fw-bold">Chắc Chắn Có Ghế</h5>
+                            <p className="text-muted">Hệ thống chọn ghế trực tuyến thời gian thực, đảm bảo giữ chỗ chính xác tuyệt đối.</p>
+                        </Card>
+                    </Col>
+                    <Col md={4}>
+                        <Card className="h-100 border-0 shadow-sm p-4 bg-white" style={{ borderRadius: '15px' }}>
+                            <h4 className="fw-bold text-warning mb-3">24/7</h4>
+                            <h5 className="fw-bold">Hỗ Trợ Tận Tâm</h5>
+                            <p className="text-muted">Đội ngũ tổng đài viên và nhân viên phòng vé luôn sẵn sàng giải đáp và xử lý sự cố.</p>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+
+            {/* About Us Section */}
+            <div className="bg-white py-5 border-top">
+                <Container>
+                    <Row className="align-items-center">
+                        <Col md={6} className="pe-md-5">
+                            <h2 className="fw-bold mb-4" style={{ color: '#ef5222' }}>VỀ NHÀ XE PHƯƠNG NAM</h2>
+                            <p className="fs-5 text-muted mb-3" style={{ lineHeight: '1.8' }}>
+                                Thành lập với sứ mệnh mang đến những chuyến đi an toàn và trọn vẹn nhất, <strong className="text-dark">Phương Nam Line</strong> không ngừng nâng cao chất lượng dịch vụ vận tải hành khách.
+                            </p>
+                            <p className="text-muted mb-4" style={{ lineHeight: '1.8' }}>
+                                Chúng tôi tự hào sở hữu hệ thống xe đa dạng từ <strong className="text-dark">Limousine VIP 22 phòng</strong>, <strong className="text-dark">Giường nằm đôi 34 phòng</strong> cao cấp đến xe ghế ngồi mềm tiện lợi. Cùng với đội ngũ tài xế giàu kinh nghiệm và nhân viên phục vụ tận tâm, Phương Nam cam kết khởi hành đúng giờ, không nhồi nhét khách, đảm bảo mang lại cho bạn trải nghiệm thoải mái như ở chính ngôi nhà của mình.
+                            </p>
+                            <div className="d-flex gap-4 mt-4">
+                                <div className="text-center border p-3 rounded shadow-sm bg-light flex-fill">
+                                    <h3 className="fw-bold text-primary mb-1">04+</h3>
+                                    <span className="text-muted fw-bold" style={{ fontSize: '0.9rem' }}>Dòng Xe Mới</span>
+                                </div>
+                                <div className="text-center border p-3 rounded shadow-sm bg-light flex-fill">
+                                    <h3 className="fw-bold text-success mb-1">50+</h3>
+                                    <span className="text-muted fw-bold" style={{ fontSize: '0.9rem' }}>Chuyến/Ngày</span>
+                                </div>
+                                <div className="text-center border p-3 rounded shadow-sm bg-light flex-fill">
+                                    <h3 className="fw-bold text-danger mb-1">1M+</h3>
+                                    <span className="text-muted fw-bold" style={{ fontSize: '0.9rem' }}>Khách Hàng</span>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col md={6} className="mt-5 mt-md-0">
+                            <Card className="border-0 p-0 rounded-4 shadow-lg overflow-hidden" style={{ minHeight: '400px' }}>
+                                {/* Hình ảnh minh họa dàn xe */}
+                                <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop" alt="Xe khach Phuong Nam" style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '400px' }} />
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         </div>
     );
 };

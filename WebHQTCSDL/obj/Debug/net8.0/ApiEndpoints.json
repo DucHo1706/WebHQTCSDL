@@ -33,6 +33,42 @@
   },
   {
     "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "GetAuditLogs",
+    "RelativePath": "api/Admin/audit-logs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "AdminCancelTicket",
+    "RelativePath": "api/Admin/cancel-ticket",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Models.AdminCancelRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
+    "Method": "ClearExpiredTickets",
+    "RelativePath": "api/Admin/clear-expired-tickets",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.AdminController",
     "Method": "DeleteRoute",
     "RelativePath": "api/Admin/delete-route",
     "HttpMethod": "POST",
@@ -110,6 +146,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebHQTCSDL.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Models.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebHQTCSDL.Controllers.BookingsController",
     "Method": "BookTicket",
     "RelativePath": "api/Bookings",
@@ -136,6 +188,22 @@
       {
         "Name": "request",
         "Type": "WebHQTCSDL.Models.CancelRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebHQTCSDL.Controllers.BookingsController",
+    "Method": "ExchangeTicket",
+    "RelativePath": "api/Bookings/exchange",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "WebHQTCSDL.Models.ExchangeRequest",
         "IsRequired": true
       }
     ],
@@ -196,7 +264,7 @@
   },
   {
     "ContainingType": "WebHQTCSDL.Controllers.RoutesController",
-    "Method": "GetRoutes",
+    "Method": "GetAllRoutes",
     "RelativePath": "api/Routes",
     "HttpMethod": "GET",
     "IsController": true,
@@ -207,27 +275,17 @@
   {
     "ContainingType": "WebHQTCSDL.Controllers.TripsController",
     "Method": "GetBookedSeats",
-    "RelativePath": "api/Trips/{chuyenXeId}/seats",
+    "RelativePath": "api/Trips/{id}/seats",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "chuyenXeId",
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebHQTCSDL.Controllers.TripsController",
-    "Method": "GetFeaturedTrips",
-    "RelativePath": "api/Trips/featured",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -249,8 +307,8 @@
         "IsRequired": false
       },
       {
-        "Name": "ngayDi",
-        "Type": "System.DateTime",
+        "Name": "ngay",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

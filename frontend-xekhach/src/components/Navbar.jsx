@@ -33,6 +33,11 @@ const NavigationBar = () => {
                             <div className="d-flex align-items-center">
                                 
                              <span className="text-white fw-bold me-3">👋 Xin chào, {user.hoTen}</span>
+                             {user.roles && user.roles.includes('Admin') && (
+                                 <Button variant="light" size="sm" onClick={() => navigate('/admin')} className="rounded-pill fw-bold me-2" style={{ color: '#ef5222' }}>
+                                     QUẢN TRỊ
+                                 </Button>
+                             )}
                              <Button variant="outline-light" size="sm" onClick={() => navigate('/history')} className="rounded-pill fw-bold me-2">
                                   LỊCH SỬ VÉ
                              </Button>

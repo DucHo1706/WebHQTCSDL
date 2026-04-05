@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using WebHQTCSDL.Repositories;
 
@@ -16,20 +17,16 @@ namespace WebHQTCSDL.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetRoutes()
+        public async Task<IActionResult> GetAllRoutes()
         {
             try
             {
-                var routes = await _repository.GetDistinctRoutesAsync();
-
-                // Trả về JSON chuẩn giống như Node.js
+                var routes = await _repository.GetAllRoutesAsync();
                 return Ok(new { success = true, data = routes });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                // In lỗi ra console của Visual Studio để dễ bắt bệnh
-                System.Console.WriteLine("LỖI: " + ex.Message);
-                return StatusCode(500, new { success = false, message = "Lỗi kết nối cơ sở dữ liệu!" });
+                return StatusCode(500, new { success = false, message = ex.Message });
             }
         }
     }
